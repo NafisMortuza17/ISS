@@ -1,12 +1,13 @@
 const refreshButton = document.querySelector('.location')
 const lat= document.querySelector('.lat')
 const long= document.querySelector('.long')
+const vel= document.querySelector('.vel')
 
-
-function printLocation(latitude,longitude)
+function printLocation(latitude,longitude,velocity)
 {
     lat.innerHTML=latitude;
     long.innerHTML=longitude;
+    vel.innerHTML=velocity;
 }
 async function fetchLocation()
 {
@@ -14,9 +15,9 @@ async function fetchLocation()
 
         const result= await  fetch(url);
         const data= await result.json();
-        const {latitude,longitude}=data;
+        const {latitude,longitude,velocity}=data;
 
-        printLocation(latitude,longitude);
+        printLocation(latitude,longitude,velocity);
 }
 
 
